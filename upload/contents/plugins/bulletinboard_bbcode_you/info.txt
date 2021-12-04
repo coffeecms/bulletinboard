@@ -1,0 +1,5 @@
+BBCode [you][/you] for Bulletin Board
+BB Code
+1.0
+https://github.com/coffeecms
+CoffeeCMS Team

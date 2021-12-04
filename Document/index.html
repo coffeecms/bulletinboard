@@ -1,0 +1,556 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>BulletinBoard - Document</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;BulletinBoard&rdquo; Documentation by &ldquo;CoffeeCMS Team&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;BulletinBoard&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 24/09/2021<br>
+					By: CoffeeCMS Team<br>
+					Email: <a href="mailto:coffeecmsteam@gmail.com">coffeecmsteam@gmail.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing Chat Box. If you have any questions that are beyond the scope of this help file, please feel free to email. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#installCoffeeCMS">Install CoffeeCMS</a></li>
+			<li><a href="#installBB">Install BulletinBoard</a></li>
+			<li><a href="#guide_setting">[Setting] - How to setting forum</a></li>
+			<li><a href="#guide_forum_add_new_forum">[Forum] - How to add new forum</a></li>
+			<li><a href="#guide_forum_add_new_sub_forum">[Forum] - How to add new sub forum</a></li>
+			<li><a href="#guide_forum_change_group_permission">[Forum] - How to change user groups permission</a></li>
+			<li><a href="#guide_forum_change_user_permission">[Forum] - How to change users permission</a></li>
+			<li><a href="#guide_forum_sort">[Forum] - How to sort</a></li>
+			<li><a href="#guide_postprefix_addnew">[Post Prefix] - How to add new post prefix</a></li>
+			<li><a href="#guide_postprefix_delete">[Post Prefix] - How to delete post prefix</a></li>
+			<li><a href="#guide_smile_add_category">[Smiles] - How to add new smile category</a></li>
+			<li><a href="#guide_smile_upload">[Smiles] - How to upload smiles into category</a></li>
+			<li><a href="#guide_reaction_add">[Reaction] - How to add new reaction</a></li>
+			<li><a href="#guide_rank_add">[User Ranks] - How to add new rank</a></li>
+			<li><a href="#guide_user_edit">[User] - How to edit user information</a></li>
+			<li><a href="#guide_user_ban">[User] - How to ban an user</a></li>
+			<li><a href="#guide_annoucement">[Annoucement] - How to add new Annoucement</a></li>
+
+			<li><a href="#guide_ads_1">[Message Ads] - How to send message to all members</a></li>
+			<li><a href="#guide_ads_2">[Thread Ads] - How to create thread ads</a></li>
+
+
+			<li><a href="#guide_add_disallow_words">[Setting] - How to add disallow words in post content</a></li>
+			<li><a href="#guide_add_disallow_user">[Setting] - How to add disallow username</a></li>
+			<li><a href="#guide_setting_captcha">[Setting] - How to setting captcha system</a></li>
+			<li><a href="#guide_add_captcha">[Setting] - How to add new captcha questions</a></li>
+			<li><a href="#guide_setting_firewall">[Setting] - How to setting firewall system</a></li>
+			<li><a href="#guide_clean_message">[Clean Data] - How to clean message data</a></li>
+			<li><a href="#guide_clean_post">[Clean Data] - How to clean thread/post data</a></li>
+
+			<li><a href="#guide_plugins">[Plugins/BBCode] - How to add new plugin</a></li>
+			<li><a href="#guide_theme">[Theme/Style] - How to add new theme/style</a></li>
+
+			<li><a href="#guide_edit_template_1">[Edit Template] - How to add html into head/footer tag</a></li>
+			<li><a href="#guide_edit_template_2">[Edit Template] - How to add html into post content</a></li>
+			<li><a href="#guide_edit_template_3">[Edit Template] - How to add html into top/bottom list forums</a></li>
+			<li><a href="#guide_edit_template_4">[Edit Template] - How to add html into top/bottom login page</a></li>
+			<li><a href="#guide_edit_template_5">[Edit Template] - How to add html into top/bottom reigster page</a></li>
+			<li><a href="#guide_edit_template_6">[Edit Template] - How to add html into top/bottom search page</a></li>
+			<li><a href="#guide_edit_template_7">[Edit Template] - How to add html into top/bottom account page</a></li>
+			<li><a href="#guide_edit_template_8">[Edit Template] - How to add html into top/bottom profile page</a></li>
+			<li><a href="#guide_edit_template_9">[Edit Template] - How to add html into top/bottom thread reply page</a></li>
+
+			<li><a href="#guide_remote">[Remote Control] - How to allow/disallow remote control to user groups</a></li>
+			<li><a href="#guide_remote_thread">[Remote Control] - How to add new thread</a></li>
+			<li><a href="#guide_remote_thread_reply">[Remote Control] - How to add new reply</a></li>
+			<li><a href="#guide_remote_message">[Remote Control] - How to send message</a></li>
+
+
+		</ol>
+		
+		<hr>
+		
+		<h3 id="installCoffeeCMS"><strong>Install CoffeeCMS</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Download CMS source code at https://github.com/coffeecms/cms , then unzip and upload all files & folders inside CoffeeCMS folder into your hosting root path</p>
+		<img src="assets/cms_install/start.JPG" alt="HTML Structure" />
+		<h4>Step 2:</h4>
+		<p>Go to http://yousite.com/install.php</p>
+		<h4>Step 3:</h4>
+		<p>At install step 1, type your database information into form then click 'Next Step' button</p>
+		<img src="assets/cms_install/1.jfif" alt="HTML Structure" />
+		<p>At install step 2, type your website information into form then click 'Apply' button</p>
+		<img src="assets/cms_install/2.jfif" alt="HTML Structure" />
+		<p>At install step 3, install completed, click 'Login to admin' button</p>
+		<img src="assets/cms_install/3.jfif" alt="HTML Structure" />
+		<h4>Step 4:</h4>
+		<p>Type username & password then login to Admin Panel</p>
+		<img src="assets/cms_install/4.jfif" alt="HTML Structure" />
+		<h4>Step 5:</h4>
+		<p>See your admin panel dashboard page</p>
+		<img src="assets/cms_install/5.jfif" alt="HTML Structure" />
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<!-- section -->
+		<hr>
+		<h3 id="installBB"><strong>Install BulletinBoard</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<img src="assets/cms_install/4.jfif" alt="HTML Structure" />
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Plugins -> click to All Plugins -> On list all plugins page, click to Activate BulletinBoard plugin</p>
+		<img src="assets/bb_install/bb_install_1.JPG" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>At install page, type your license key into License Key text box then click Next Step button</p>
+		<img src="assets/bb_install/bb_install_2.JPG" alt="HTML Structure" />
+		<p>If you see message 'Create database complete...' then click Next Step button</p>
+		<img src="assets/bb_install/bb_install_3.JPG" alt="HTML Structure" />
+		<p>If you see message 'Install complete...' then click Back to dashboard button</p>
+		<img src="assets/bb_install/bb_install_4.JPG" alt="HTML Structure" />
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->		
+		<!-- section -->
+		<hr>
+		<h3 id="guide_setting"><strong>[Setting] - How to setting forum</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Settings</p>
+		<img src="assets/images/1_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>After change data which you want, click to 'Save Changes' button at bottom of page</p>
+		<img src="assets/images/1_2.png" style="width: 100%;" alt="HTML Structure" />
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<!-- section -->		
+		<!-- section -->
+		<hr>
+		<h3 id="guide_forum_add_new_forum"><strong>[Forum] - How to add new forum</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Forum</p>
+		<img src="assets/images/2_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Click to 'Plus' button on Top Right of page</p>
+		<img src="assets/images/2_2.JPG" style="width: 100%;" alt="HTML Structure" />
+		<p>Fill forum information into form then click to 'Add new' button to create new forum</p>
+		<img src="assets/images/2_3.JPG" style="width: 100%;" alt="HTML Structure" />
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+
+		<!-- section -->
+		<hr>
+		<h3 id="guide_forum_add_new_sub_forum"><strong>[Forum] - How to add new sub forum</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Forum</p>
+		<img src="assets/images/2_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Click to 'Plus' button on the row of forum which you want to add new sub forum</p>
+		<img src="assets/images/2_4.JPG" style="width: 100%;" alt="HTML Structure" />
+		<p>Fill forum information into form then click to 'Add new' button to create new sub forum</p>
+		<img src="assets/images/2_3.JPG" style="width: 100%;" alt="HTML Structure" />
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+
+		<!-- section -->
+		<hr>
+		<h3 id="guide_forum_change_group_permission"><strong>[Forum] - How to change user groups permission</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Forum</p>
+		<img src="assets/images/2_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Click to 'User Group Permissions' button on the row of forum which you want to edit permission of user groups in that forum</p>
+		<img src="assets/images/2_5.JPG" style="width: 100%;" alt="HTML Structure" />
+		<p>Select user group which you want to edit permission in that forum then click to 'Edit' button on the right of row</p>
+		<img src="assets/images/2_5_1.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<p>Add or Delete permissions that you need apply for User Group then click to 'Save Changes' button</p>
+		<img src="assets/images/2_5_2.JPG" style="width: 100%;" alt="HTML Structure" />
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_forum_change_user_permission"><strong>[Forum] - How to change users permission</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Forum</p>
+		<img src="assets/images/2_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Click to 'User Permissions' button on the row of forum which you want to edit permission of users in that forum</p>
+		<img src="assets/images/2_6.JPG" style="width: 100%;" alt="HTML Structure" />
+		<p>Then click to 'Plus' button on the Top Right of page</p>
+		<img src="assets/images/2_6_1.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<p>Type username into Username section, then Add/Delete permission in Permissions section then click 'Add new' button</p>
+		<img src="assets/images/2_6_2.JPG" style="width: 100%;" alt="HTML Structure" />
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+
+		<!-- section -->
+		<hr>
+		<h3 id="guide_forum_sort"><strong>[Forum] - How to sort</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Forum</p>
+		<img src="assets/images/2_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Click 'Up'/'Down' button to sort forum</p>
+		<img src="assets/images/2_7.JPG" style="width: 100%;" alt="HTML Structure" />
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_postprefix_addnew"><strong>[Post Prefix] - How to add new post prefix</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Post Prefix</p>
+		<img src="assets/images/3_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Then click to 'Plus' button on the Top Right of page</p>
+		<img src="assets/images/3_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<h4>Step 4:</h4>
+		<p>Fill Post Prefix information into form then click 'Add new' button</p>
+		<img src="assets/images/3_3.JPG" style="width: 100%;" alt="HTML Structure" />
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_postprefix_delete"><strong>[Post Prefix] - How to delete post prefix</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Post Prefix</p>
+		<img src="assets/images/3_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Click and select 'Delete' in 'Select an action' box on bottom of page then click 'Apply' button</p>
+		<img src="assets/images/3_4.JPG" style="width: 100%;" alt="HTML Structure" />		
+		
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_smile_add_category"><strong>[Smiles] - How to add new smile category</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Smiles</p>
+		<img src="assets/images/4_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Then click to 'Plus' button on the Top Right of page</p>
+		<img src="assets/images/4_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+				<h4>Step 4:</h4>
+		<p>Fill title of category then click 'Add new' button</p>
+		<img src="assets/images/4_3.JPG" style="width: 100%;" alt="HTML Structure" />		
+		
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->		
+		<!-- section -->
+		<hr>
+		<h3 id="guide_smile_upload"><strong>[Smiles] - How to upload smiles into category</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Smiles</p>
+		<img src="assets/images/4_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Click onto Smile category which you want to upload more smiles</p>
+		<img src="assets/images/5_1.JPG" style="width: 100%;" alt="HTML Structure" />		
+				<h4>Step 4:</h4>
+		<p>Then click to 'Plus' button on the Top Right of page</p>
+		<img src="assets/images/5_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+						<h4>Step 5:</h4>
+		<p>Click to 'Upload new file' button then select images which you want to upload then wait a moment</p>
+		<img src="assets/images/5_3.JPG" style="width: 100%;" alt="HTML Structure" />		
+								<h4>Step 6:</h4>
+		<p>After upload completed, you can fill smiles information then click 'Add new' button</p>
+		<img src="assets/images/5_4.JPG" style="width: 100%;" alt="HTML Structure" />		
+		
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->		
+
+		<!-- section -->
+		<hr>
+		<h3 id="guide_reaction_add"><strong>[Reaction] - How to add new reaction</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Reactions</p>
+		<img src="assets/images/6_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Then click to 'Plus' button on the Top Right of page</p>
+		<img src="assets/images/6_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+				<h4>Step 4:</h4>
+		<p>Click to 'Upload new file' button then select images which you want to upload then wait a moment</p>
+		<img src="assets/images/6_3.JPG" style="width: 100%;" alt="HTML Structure" />		
+								<h4>Step 6:</h4>
+		<p>After upload completed, you can fill reaction information then click 'Add new' button</p>
+		<img src="assets/images/6_4.JPG" style="width: 100%;" alt="HTML Structure" />		
+		
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_rank_add"><strong>[User Ranks] - How to add new rank</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Ranks</p>
+		<img src="assets/images/7_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Then click to 'Plus' button on the Top Right of page</p>
+		<img src="assets/images/7_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+				<h4>Step 4:</h4>
+		<p>Fill rank information then click 'Add new' button</p>
+		<img src="assets/images/7_3.JPG" style="width: 100%;" alt="HTML Structure" />		
+		
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_user_edit"><strong>[User] - How to edit user information</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Users</p>
+		<img src="assets/images/8_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Click onto row of user that you want to edit</p>
+		<img src="assets/images/8_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+				<h4>Step 4:</h4>
+		<p>Edit user information then click to 'Save Changes' button on bottom of page</p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_user_ban"><strong>[User] - How to ban an user</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Users</p>
+		<img src="assets/images/8_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Click onto row of user that you want to ban</p>
+		<img src="assets/images/8_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+				<h4>Step 4:</h4>
+		<p>Click to 'Ban this user' button on bottom of page, system will lock USERNAME & EMAIL ADDRESS of that user</p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_annoucement"><strong>[Annoucement] - How to add new Annoucement</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Annoucements</p>
+		<img src="assets/images/9_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Then click to 'Plus' button on the Top Right of page</p>
+		<img src="assets/images/9_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<h4>Step 4:</h4>
+		<p>Fill annoucement information into form then click to 'Add new' button</p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+
+		<!-- section -->
+		<hr>
+		<h3 id="guide_ads_1"><strong>[Message Ads] - How to send message to all members</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> Ads section -> click to Messages Ads</p>
+		<img src="assets/images/10_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Then click to 'Plus' button on the Top Right of page</p>
+		<img src="assets/images/10_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<h4>Step 4:</h4>
+		<p>Fill message information into form then click to 'Create Ads' button</p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+
+		<!-- section -->
+		<hr>
+		<h3 id="guide_ads_2"><strong>[Thread Ads] - How to create thread ads</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Create new thread on forum that you want to create thread ads</p>		
+		<h4>Step 2:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 3:</h4>
+		<p>On left menu, go to Bullentin Board -> Ads section -> click to Thread Ads</p>
+		<img src="assets/images/11_0.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 4:</h4>
+		<p>Then click to 'Plus' button on the Top Right of page</p>
+		<img src="assets/images/11_1.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<h4>Step 5:</h4>
+		<p>Paste url's thread which you want to create thread ads into 'Thread Url' text box</p>
+		<p>Fill ads information into form then click to 'Create Ads' button</p>
+		<img src="assets/images/11_2.JPG" style="width: 100%;" alt="HTML Structure" />	
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+
+		<!-- section -->
+		<hr>
+		<h3 id="guide_add_disallow_words"><strong>[Setting] - How to add disallow words in post content</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Settings</p>
+		<img src="assets/images/12_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Then click to 'Disallow words' tab</p>
+		<img src="assets/images/12_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<h4>Step 4:</h4>
+		<p>Type words that you want to disallow use in your forum into text box then click 'Save Changes' button</p>
+		<img src="assets/images/12_3.JPG" style="width: 100%;" alt="HTML Structure" />	
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+
+
+		<!-- section -->
+		<hr>
+		<h3 id="guide_add_disallow_user"><strong>[Setting] - How to add disallow username</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Settings</p>
+		<img src="assets/images/12_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Then click to 'Disallow user register' tab</p>
+		<img src="assets/images/13_1.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<h4>Step 4:</h4>
+		<p>Type usernames that you want to disallow use in your forum into text box then click 'Save Changes' button</p>
+		<img src="assets/images/13_2.JPG" style="width: 100%;" alt="HTML Structure" />	
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+
+		<!-- section -->
+		<hr>
+		<h3 id="guide_setting_captcha"><strong>[Setting] - How to setting captcha system</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Settings</p>
+		<img src="assets/images/12_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Then click to 'Captcha' tab</p>
+		<img src="assets/images/14_1.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<h4>Step 4:</h4>
+		<p>Change your captcha setting then click 'Save Changes' button</p>
+		<img src="assets/images/14_2.JPG" style="width: 100%;" alt="HTML Structure" />	
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_setting_firewall"><strong>[Setting] - How to setting firewall system</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Settings</p>
+		<img src="assets/images/12_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Then click to 'Firewall' tab</p>
+		<img src="assets/images/15_1.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<h4>Step 4:</h4>
+		<p>Change your Firewall setting then click 'Save Changes' button</p>
+		<img src="assets/images/15_2.JPG" style="width: 100%;" alt="HTML Structure" />	
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_clean_post"><strong>[Clean Data] - How to clean thread/post data</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to Clean Data</p>
+		<img src="assets/images/17_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>At 'Thread' tab, fill data what you want to clear then click to 'Start clean data' button</p>
+		<img src="assets/images/17_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_clean_message"><strong>[Clean Data] - How to clean message data</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, go to Bullentin Board -> click to  Clean Data</p>
+		<img src="assets/images/16_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Click to 'Messages' tab</p>
+		<img src="assets/images/16_2.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<h4>Step 3:</h4>
+		<p>At 'Message' tab, fill data what you want to clear then click to 'Start clean data' button</p>
+		<img src="assets/images/16_3.JPG" style="width: 100%;" alt="HTML Structure" />	
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		<!-- section -->
+		<hr>
+		<h3 id="guide_plugins"><strong>[Plugins/BBCode] - How to add new plugin</strong> - <a href="#toc">top</a></h3>
+		<h4>Step 1:</h4>
+		<p>Login into your admin panel at http://yousite.com/admin</p>
+		<h4>Step 2:</h4>
+		<p>On left menu, click to Plugins -> Import</p>
+		<img src="assets/images/18_1.JPG" style="width: 100%;" alt="HTML Structure" />
+		<h4>Step 3:</h4>
+		<p>Then click to 'Plus' button on the Top Right of page</p>
+		<img src="assets/images/18_2.JPG" style="width: 100%;" alt="HTML Structure" />			
+		<h4>Step 4:</h4>
+		<p>Click to 'Upload new file' button then select .zip file of plugin that you want to upload then wait some seconds to upload and extract files...</p>
+		<img src="assets/images/18_3.JPG" style="width: 100%;" alt="HTML Structure" />		
+		<h4>Step 5:</h4>
+		<p>On left menu, click to Plugins -> All Plugins</p>
+		<img src="assets/images/18_4.JPG" style="width: 100%;" alt="HTML Structure" />			
+		<h4>Step 6:</h4>
+		<p>Click to 'Activate' plugin that you want to Activate to use</p>
+		<img src="assets/images/18_5.JPG" style="width: 100%;" alt="HTML Structure" />	
+
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		<!-- section -->
+		
+
+
+		<hr>
+
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing our product. As I said at the beginning, I'd be glad to help you if you have any questions relating to this product. No guarantees, but I'll do my best to assist. If you have a more general question relating to the our product, you might consider visiting the <a href="https://forum.coffeecms.net">https://forum.coffeecms.net</a> and asking your question.</p> 
+		
+		<p class="append-bottom alt large"><strong>CoffeeCMS Team</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

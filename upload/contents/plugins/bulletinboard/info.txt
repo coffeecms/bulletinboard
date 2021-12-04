@@ -1,0 +1,5 @@
+Bulletin Board
+Build & manage your forum / discussion board
+1.0
+https://github.com/coffeecms
+CoffeeCMS Team

@@ -1,0 +1,5 @@
+BBCode List for BulletinBoard
+All normal bbcode: [i][/i],[b][/b],[a][/a]
+1.0
+https://github.com/coffeecms
+CoffeeCMS Team

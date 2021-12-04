@@ -1,0 +1,5 @@
+Bulletin Board Simple Theme
+Theme for bulletinboard
+1.0
+https://github.com/coffeecms/cms
+CoffeeCMS Team

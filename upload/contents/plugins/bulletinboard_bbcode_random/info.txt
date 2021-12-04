@@ -1,0 +1,5 @@
+BBCode [random][/random],[random_number]2[/random_number] for Bulletin Board
+[random]Line 1::break::Line 2::break::Line 3::break::[/random]
+1.0
+https://github.com/coffeecms
+CoffeeCMS Team
