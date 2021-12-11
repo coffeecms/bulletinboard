@@ -11,48 +11,27 @@ class BB_Message
     
     public static function load_receivers($message_id)
     {
-        $savePath=BB_CACHES_PATH.'message_receivers_'.$message_id.'.php';
+        
+        $db=new Database();
 
-        if(!file_exists($savePath))
-        {
-            
-            $db=new Database();
+        $queryStr='';
 
-            $queryStr='';
+        $loadData=$db->query("select a.target_username,a.target_username as username,b.group_c,a.target_user_id,a.message_id from bb_message_user_data as a join user_mst as b ON a.target_username=b.username where a.message_id='".$message_id."' limit 0,10"); 
 
-            $loadData=$db->query("select target_username,target_user_id,message_id from bb_message_user_data where message_id='".$message_id."' limit 0,10"); 
-                
-            create_file($savePath,"<?php Configs::\$_['message_receivers']='".json_encode($loadData)."';");
-        }
 
-        require_once($savePath);
-
-        $result=json_decode(Configs::$_['message_receivers'],true);     
-
-        return $result;
+        return $loadData;
     }
 
     public static function load_attach_files($message_id)
     {
-        $savePath=BB_CACHES_PATH.'message_attach_files_'.$message_id.'.php';
+        $db=new Database();
 
-        if(!file_exists($savePath))
-        {
-            
-            $db=new Database();
+        $queryStr='';
 
-            $queryStr='';
-
-            $loadData=$db->query("select * from bb_thread_attach_files_data where post_id='".$message_id."' AND data_type='message'"); 
+        $loadData=$db->query("select * from bb_thread_attach_files_data where post_id='".$message_id."' AND data_type='message'"); 
                 
-            create_file($savePath,"<?php Configs::\$_['message_attach_files']='".json_encode($loadData)."';");
-        }
 
-        require_once($savePath);
-
-        $result=json_decode(Configs::$_['message_attach_files'],true);     
-
-        return $result;
+        return $loadData;
     }
 
     public static function updateMessageCountStats($user_id)

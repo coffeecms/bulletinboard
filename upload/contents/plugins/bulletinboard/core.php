@@ -40,6 +40,8 @@ function bb_prepare_visitor_data() {
 	// Step 3: Insert visitor session info to db
 	// Step 4: Load visitor permissions: home page, forums, threads,posts
 
+	bb_load_user_group_data();
+
 	if (!isLogined()) {
 
 		$session_id = Configs::$_['visitor_data']['session_id'];
@@ -374,12 +376,12 @@ function prepare_visitor_online_data($limit = 0) {
 
 	$url = current_url();
 
-	$queryStr = " SELECT distinct a.username as user_id,b.username";
+	$queryStr = " SELECT distinct a.username as user_id,b.username,b.group_c";
 	$queryStr .= " FROM bb_visitor_views_data as a";
 	$queryStr .= " join user_mst as b ON a.username=b.user_id";
 
 	if ($url != SITE_URL) {
-		$queryStr .= " WHERE page_url='" . $url . "' AND a.ent_dt >= NOW() - INTERVAL 5 MINUTE";
+		$queryStr .= " WHERE a.page_url='" . $url . "' AND a.ent_dt >= NOW() - INTERVAL 5 MINUTE";
 	} else {
 		$queryStr .= " WHERE a.ent_dt >= NOW() - INTERVAL 5 MINUTE";
 	}
@@ -1089,4 +1091,55 @@ function bb_gen_breadcum_forum_data_global($forum_id) {
 			bb_gen_breadcum_forum_data_global($listCategories[$i]['parent_id'], $listCategories);
 		}
 	}
+}
+
+function load_forum_moderators($forum_id)
+{
+	Configs::$_['forum_moderators']=[];
+
+    $db=new Database();
+
+	$queryStr=" SELECT b.username,b.user_id,b.group_c,c.title as group_title,";
+	$queryStr.=" c.left_str as group_left_str,c.right_str as group_right_str";
+	$queryStr.=" FROM bb_forum_user_permission_data as a";
+	$queryStr.=" left join user_mst as b ON a.user_id=b.user_id";
+	$queryStr.=" left join user_group_mst as c ON b.group_c=c.group_c";
+	$queryStr.=" where a.permission_c IN ('BB10008') AND a.forum_id='".$forum_id."'";
+	$queryStr.=" group by b.user_id";
+
+	Configs::$_['forum_moderators']=$db->query($queryStr);
+
+}
+
+function bb_load_user_group_data()
+{
+	Configs::$_['user_group_mst']=[];
+
+	$loadData=load_user_group_mst();
+
+	$total=count($loadData);
+
+	for ($i=0; $i < $total; $i++) { 
+		if(!isset(Configs::$_['user_group_mst'][$loadData[$i]['group_c']]))
+		{
+			Configs::$_['user_group_mst'][$loadData[$i]['group_c']]=[];
+			Configs::$_['user_group_mst'][$loadData[$i]['group_c']]=$loadData[$i];
+		}
+	}
+}
+
+function bb_render_user_group_title($userData=[])
+{
+	//username,user_id,group_c
+
+	$groupData=Configs::$_['user_group_mst'][$userData['group_c']];
+
+	$result=$userData['username'];
+
+	if($groupData['left_str']!=null && isset($groupData['left_str'][3]))
+	{
+		$result=$groupData['left_str'].$userData['username'].$groupData['right_str'];
+	}
+
+	return $result;
 }

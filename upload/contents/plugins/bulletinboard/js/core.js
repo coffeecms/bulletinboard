@@ -14,3 +14,16 @@ $(document).on('click','.btn-refresh-captcha',function(){
     });      
 });
 
+
+function bb_render_user_group_title(userData={})
+{
+  var result=userData['username'];
+  var groupData=pageData['user_group_mst'][userData['group_c']];
+
+  if(groupData['left_str']!=null && groupData['left_str'].length > 3)
+  {
+    result=groupData['left_str']+userData['username']+groupData['right_str'];
+  }
+
+  return result;
+}

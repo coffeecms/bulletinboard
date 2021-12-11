@@ -46,11 +46,7 @@ class BB_Threads
 
             $loadData=$db->query($queryStr); 
                 
-            if(count($loadData) > 0)
-            {
-                create_file($savePath,"<?php Configs::\$_['thread_data']='".json_encode($loadData[0])."';");
-            }
-
+            create_file($savePath,"<?php Configs::\$_['thread_data']='".json_encode($loadData[0])."';");
             
         }
 
@@ -90,7 +86,7 @@ class BB_Threads
     {
         $db=new Database();
 
-        $db->setCache(180);
+        // $db->setCache(180);
 
         $queryStr='';
 
@@ -113,33 +109,24 @@ class BB_Threads
 
         $loadData=$db->query($queryStr); 
 
-        $db->unsetCache();
+        // $db->unsetCache();
 
         return $loadData;
     }
 
     public static function load_attach_files($post_id)
     {
-        $savePath=BB_CACHES_PATH.'post_attach_files_'.$post_id.'.php';
+        // $savePath=BB_CACHES_PATH.'post_attach_files_'.$post_id.'.php';
 
-        if(!file_exists($savePath))
-        {
-            
-            $db=new Database();
+        $db=new Database();
 
-            $queryStr='';
+        $queryStr='';
 
-            $loadData=$db->query("select * from bb_thread_attach_files_data where post_id='".$post_id."' AND data_type IN ('thread','post')"); 
-                
-            create_file($savePath,"<?php Configs::\$_['post_attach_files']='".json_encode($loadData)."';");
-        }
-
-        require_once($savePath);
-
-        $result=json_decode(Configs::$_['post_attach_files'],true);     
-
-        return $result;
+        $loadData=$db->query("select * from bb_thread_attach_files_data where post_id='".$post_id."' AND data_type IN ('thread','post')"); 
+      
+        return $loadData;
     }
+    
     public static function clear_attach_files($post_id)
     {
         $savePath=BB_CACHES_PATH.'post_attach_files_'.$post_id.'.php';

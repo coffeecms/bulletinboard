@@ -99,9 +99,10 @@ class BB_Forum
         $queryStr='';
 
         $queryStr.="select a.status,a.thread_id,a.forum_id,a.prefix_id,b.title as prefix_title,b.bg_color_c as prefix_bg_color,";
-        $queryStr.=" c.username,c.fullname,c.avatar,a.title,a.views,a.total_replies,a.author,a.last_repy_time,a.last_username_reply,a.friendly_url,a.ent_dt,a.upd_dt ";
+        $queryStr.=" c.username,c.group_c,d.group_c as group_c_reply,c.fullname,c.avatar,a.title,a.views,a.total_replies,a.author,a.last_repy_time,a.last_username_reply,a.friendly_url,a.ent_dt,a.upd_dt ";
         $queryStr.=" from bb_threads_data as a";
         $queryStr.=" join bb_post_prefix_data as b ON a.prefix_id=b.prefix_id";
+                $queryStr.=" join user_mst as d ON a.last_username_reply=d.username ";
         $queryStr.=" join user_mst as c ON a.user_id=c.user_id where a.forum_id='".$forum_id."' AND a.is_stick='1' ";
 
         $queryStr.=" order by ent_dt desc limit 0,30";
@@ -129,9 +130,10 @@ class BB_Forum
         $queryStr='';
 
         $queryStr.="select a.status,a.thread_id,a.forum_id,a.prefix_id,b.title as prefix_title,b.bg_color_c as prefix_bg_color,";
-        $queryStr.=" c.username,c.fullname,c.avatar,a.title,a.views,a.total_replies,a.author,a.last_repy_time,a.last_username_reply,a.friendly_url,a.ent_dt,a.upd_dt ";
+        $queryStr.=" c.username,c.group_c,e.group_c as group_c_reply,c.fullname,c.avatar,a.title,a.views,a.total_replies,a.author,a.last_repy_time,a.last_username_reply,a.friendly_url,a.ent_dt,a.upd_dt ";
         $queryStr.=" from bb_threads_data as a";
         $queryStr.=" join bb_post_prefix_data as b ON a.prefix_id=b.prefix_id";
+        $queryStr.=" join user_mst as e ON a.last_username_reply=e.username ";
         $queryStr.=" join user_mst as c ON a.user_id=c.user_id";
         $queryStr.=" join bb_ads_thread_data as d ON a.thread_id=d.thread_id where a.forum_id='".$forum_id."' AND a.status='1' AND d.start_date <= '".date('Y-m-d')."' AND d.end_date >= '".date('Y-m-d')."'";
         // $queryStr.=" join user_mst as c ON a.user_id=c.user_id where a.forum_id='".$forum_id."' AND a.status='1' AND a.thread_id IN (select thread_id from bb_ads_thread_data where forum_id='".$forum_id."' AND end_date >= '".date('Y-m-d')."') ";

@@ -28,7 +28,7 @@ function bb_memberlist_filter()
 
     if($method=='most_followers')
     {
-        $queryStr=" select a.*,b.username,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(c.total,'0') as total";
+        $queryStr=" select a.*,b.username,b.group_c,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(c.total,'0') as total";
         $queryStr.=" from bb_user_data as a";
         $queryStr.=" left join user_mst as b ON a.user_id=b.user_id";
         $queryStr.=" left join user_group_mst as d ON b.group_c=d.group_c";
@@ -40,7 +40,7 @@ function bb_memberlist_filter()
     }
     if($method=='most_followings')
     {
-        $queryStr=" select a.*,b.username,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(c.total,'0') as total";
+        $queryStr=" select a.*,b.username,b.group_c,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(c.total,'0') as total";
         $queryStr.=" from bb_user_data as a";
         $queryStr.=" left join user_mst as b ON a.user_id=b.user_id";
         $queryStr.=" left join user_group_mst as d ON b.group_c=d.group_c";
@@ -52,7 +52,7 @@ function bb_memberlist_filter()
     }
     if($method=='most_points')
     {
-        $queryStr=" select a.*,b.username,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.total_points,'0') as total";
+        $queryStr=" select a.*,b.username,b.group_c,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.total_points,'0') as total";
         $queryStr.=" from bb_user_data as a";
         $queryStr.=" left join user_mst as b ON a.user_id=b.user_id";
         $queryStr.=" left join user_group_mst as d ON b.group_c=d.group_c";
@@ -61,7 +61,7 @@ function bb_memberlist_filter()
     }
     if($method=='most_reactions')
     {
-        $queryStr=" select a.*,b.username,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.reactions,'0') as total";
+        $queryStr=" select a.*,b.username,b.group_c,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.reactions,'0') as total";
         $queryStr.=" from bb_user_data as a";
         $queryStr.=" left join user_mst as b ON a.user_id=b.user_id";
         $queryStr.=" left join user_group_mst as d ON b.group_c=d.group_c";
@@ -70,7 +70,7 @@ function bb_memberlist_filter()
     }
     if($method=='most_messages')
     {
-        $queryStr=" select a.*,b.username,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.created_message,'0') as total";
+        $queryStr=" select a.*,b.username,b.group_c,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.created_message,'0') as total";
         $queryStr.=" from bb_user_data as a";
         $queryStr.=" left join user_mst as b ON a.user_id=b.user_id";
         $queryStr.=" left join user_group_mst as d ON b.group_c=d.group_c";
@@ -79,7 +79,7 @@ function bb_memberlist_filter()
     }
     if($method=='most_threads')
     {
-        $queryStr=" select a.*,b.username,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.threads,'0') as total";
+        $queryStr=" select a.*,b.username,b.group_c,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.threads,'0') as total";
         $queryStr.=" from bb_user_data as a";
         $queryStr.=" left join user_mst as b ON a.user_id=b.user_id";
         $queryStr.=" left join user_group_mst as d ON b.group_c=d.group_c";
@@ -88,7 +88,7 @@ function bb_memberlist_filter()
     }
     if($method=='most_replies')
     {
-        $queryStr=" select a.*,b.username,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.posts,'0') as total";
+        $queryStr=" select a.*,b.username,b.group_c,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.posts,'0') as total";
         $queryStr.=" from bb_user_data as a";
         $queryStr.=" left join user_mst as b ON a.user_id=b.user_id";
         $queryStr.=" left join user_group_mst as d ON b.group_c=d.group_c";
@@ -97,7 +97,7 @@ function bb_memberlist_filter()
     }    
     if($method=='newest_member')
     {
-        $queryStr=" select a.*,b.ent_dt,b.username,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.posts,'0') as total";
+        $queryStr=" select a.*,b.ent_dt,b.username,b.group_c,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.posts,'0') as total";
         $queryStr.=" from bb_user_data as a";
         $queryStr.=" left join user_mst as b ON a.user_id=b.user_id";
         $queryStr.=" left join user_group_mst as d ON b.group_c=d.group_c";
@@ -106,7 +106,7 @@ function bb_memberlist_filter()
     }    
     if($method=='today_birthday')
     {
-        $queryStr=" select a.*,b.username,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.posts,'0') as total";
+        $queryStr=" select a.*,b.username,b.group_c,ifnull(b.avatar,'') as avatar,d.title as group_title,ifnull(a.posts,'0') as total";
         $queryStr.=" from bb_user_data as a";
         $queryStr.=" left join user_mst as b ON a.user_id=b.user_id";
         $queryStr.=" left join user_group_mst as d ON b.group_c=d.group_c";

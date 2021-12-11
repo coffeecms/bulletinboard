@@ -46,7 +46,7 @@ class BB_UserRanks
     }
     public static function load_by_userid($user_id)
     {
-        $savePath=BB_CACHES_PATH.'user_ranks_'.$user_id.'.php';
+        // $savePath=BB_CACHES_PATH.'user_ranks_'.$user_id.'.php';
 
         $db=new Database();
 

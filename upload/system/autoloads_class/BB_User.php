@@ -98,35 +98,26 @@ class BB_User
 
         Configs::$_['bb_user_mst']=[];
         Configs::$_['bb_user_data']=[];
-
-        if(!file_exists($savePath))
-        {
-            
-            $db=new Database();
-
-            $queryStr='';
-            $queryStr.="select a.user_id,a.username,a.fullname,a.group_c,a.level_c,b.title as group_title,c.title as level_title ";
-            $queryStr.=" from user_mst a left join user_group_mst b ON a.group_c=b.group_c ";
-            $queryStr.=" left join user_level_mst c ON a.level_c=c.level_id ";
-            $queryStr.=" where a.username='".$username."' ";
-            
-            $userMst=$db->query($queryStr); 
-          
-            if(!is_array($userMst) || count($userMst)==0)
-            {
-                return false;
-            }
-
-            $bbUserData=$db->query("select * from bb_user_data where user_id='".$userMst[0]['user_id']."'"); 
-      
-            create_file($savePath,"<?php Configs::\$_['bb_user_mst']='".json_encode($userMst)."';Configs::\$_['bb_user_data']='".json_encode($bbUserData)."';");
         
+        $db=new Database();
+
+        $queryStr='';
+        $queryStr.="select a.user_id,a.username,a.fullname,a.group_c,a.level_c,b.title as group_title,c.title as level_title ";
+        $queryStr.=" from user_mst a left join user_group_mst b ON a.group_c=b.group_c ";
+        $queryStr.=" left join user_level_mst c ON a.level_c=c.level_id ";
+        $queryStr.=" where a.username='".$username."' ";
+        
+        $userMst=$db->query($queryStr); 
+      
+        if(!is_array($userMst) || count($userMst)==0)
+        {
+            return false;
         }
 
-        require_once($savePath);
+        $bbUserData=$db->query("select * from bb_user_data where user_id='".$userMst[0]['user_id']."'"); 
 
-        Configs::$_['bb_user_mst']=json_decode(Configs::$_['bb_user_mst'],true);
-        Configs::$_['bb_user_data']=json_decode(Configs::$_['bb_user_data'],true);
+        Configs::$_['bb_user_mst']=$userMst;
+        Configs::$_['bb_user_data']=$bbUserData;
 
     }
 

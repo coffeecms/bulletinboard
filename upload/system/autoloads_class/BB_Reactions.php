@@ -60,7 +60,6 @@ class BB_Reactions
         $result=[];
        $db=new Database();
      
-
         $result=$db->query("select a.user_id,a.reaction_id,b.username,c.title,c.image_path from bb_post_reactions_data as a join user_mst as b ON a.user_id=b.user_id join bb_reaction_data as c ON a.reaction_id=c.reaction_id where a.post_id='".$thread_id."' and a.type='thread' order by a.ent_dt desc limit 0,5");    
 
         return $result;
