@@ -1143,3 +1143,106 @@ function bb_render_user_group_title($userData=[])
 
 	return $result;
 }
+
+function set_login($username,$password)
+{
+    $rePassword=md5($password);
+    $db=new Database(); 
+
+    $result=$db->query("select user_id,username,group_c,level_c from user_mst where (username='".$username."' OR email='".$username."') AND password='".$rePassword."'");
+
+
+    if(count($result)==0)
+    {
+    	return false;
+    }
+
+    $db->nonquery("delete from bb_visitor_views_data where ent_dt < '".date('Y-m-d H:i:s',time()-86400)."'");
+
+    //Set cookie
+    $parse=parse_url(SITE_URL);
+    setcookie('cf_u', $username, time()+ 360000,'/', $parse['host']);
+    setcookie('cf_p', $rePassword, time()+ 360000,'/', $parse['host']);
+    
+    $db->nonquery("update user_mst set last_logined=now() where (username='".$username."' OR email='".$username."') AND password='".$rePassword."'");
+    $db->nonquery("update bb_user_data set last_user_online=now(),last_user_ip_address='".Configs::$_['visitor_data']['ip']."',last_user_user_agent='".Configs::$_['visitor_data']['user_agent']."' where user_id='".$result[0]['user_id']."'");
+
+    createLoginSession($username,$rePassword);
+
+    saveActivities('user_login','Login success',$username);
+    
+    BB_Message::updateMessageCountStats($result[0]['user_id']);
+    BB_User::updateFollowCountStats($result[0]['user_id']);
+    BB_User::updateReactionCountStats($result[0]['user_id']);
+    BB_User::updateThreadCountStats($result[0]['user_id']);    
+
+    return true;
+}
+
+function set_register_account($inputData=[])
+{
+
+    $useID=rand(12,18);
+
+    $user_id=newID($useID);
+
+    if(!isset($inputData['user_id']))
+    {
+    	$inputData['user_id']=$user_id;
+    }
+
+    if(!isset($inputData['email']))
+    {
+    	$inputData['email']='';
+    }
+
+    if(!isset($inputData['username']))
+    {
+    	$inputData['username']=rand(9,12);
+    }
+    if(!isset($inputData['fullname']))
+    {
+    	$inputData['username']=$inputData['username'];
+    }
+
+    if(!isset($inputData['password']))
+    {
+    	$inputData['password']=rand(6,8);
+    }
+
+    $status='1';
+
+    if(Configs::$_['register_verify_email']!='no')
+    {
+        $status='0';
+    }    
+
+    $insertData=array(
+        'user_id'=>$inputData['user_id'],
+        'group_c'=>Configs::$_['default_member_groupid'],
+        'level_c'=>Configs::$_['default_member_levelid'],
+        'email'=>$inputData['email'],
+        'password'=>md5($inputData['password']),
+        'username'=>$inputData['username'],
+        'fullname'=>$inputData['fullname'],
+        'status'=>$status,
+    );
+
+    $queryStr=arrayToInsertStr('user_mst',$insertData);
+    $db=new Database(); 
+
+    $db->nonquery($queryStr); 
+    
+    $insertBBData=array(
+        'user_id'=>$user_id,
+    );
+
+    $queryStr=arrayToInsertStr('bb_user_data',$insertBBData);
+
+    $db->nonquery($queryStr); 
+      
+    BB_System::updateStats();
+
+    load_hook('after_insert_user',$insertData);
+
+}
